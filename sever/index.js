@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-import postRoutes from './routes/posts.js';
+import recordRoutes from './routes/records.js';
 
 const app = express();
 
@@ -11,9 +11,10 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/posts', postRoutes);
+app.use('/records', recordRoutes);
 
-const CONNECTION_URL = 'mongodb+srv://js_mastery:123123123@practice.jto9p.mongodb.net/test';
+// You should replace the CONNECTION_URL 
+const CONNECTION_URL = "mongodb+srv://fzzfs:autobin123@cluster0.tqy1q.mongodb.net/autobin?retryWrites=true&w=majority";
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

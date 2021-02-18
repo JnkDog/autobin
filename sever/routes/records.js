@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get('/', getRecords);
 router.post('/', addRecord);
-router.get('/datanice', getRecordsWithLocation);   
+router.get('/datawithmap', getRecordsWithLocation);   
 
 export default router;

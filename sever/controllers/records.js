@@ -27,16 +27,27 @@ export const getRecord = async (req, res) => {
 }
 
 export const addRecord = async (req, res) => {
-    const { title, message, selectedFile, creator, tags } = req.body;
+    const { name, type, binCode, accuracy } = req.body;
 
-    const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+    const newRecord = new RecordMessage({ name, type, binCode, accuracy })
 
     try {
-        await newPostMessage.save();
+        await newRecord.save();
 
-        res.status(201).json(newPostMessage );
+        res.status(201).json(newRecord);
     } catch (error) {
         res.status(409).json({ message: error.message });
+    }
+}
+
+export const getRecordsWithLocation = async(req, res) => {
+    try {
+        // need change and test
+        const recordsWithMap = await RecordMessage.find();
+                
+        res.status(200).json(recordsWithMap);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
     }
 }
 
