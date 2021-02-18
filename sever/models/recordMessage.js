@@ -10,6 +10,8 @@ const recordSchema = mongoose.Schema({
     name: String,
     type: String,
     binCode: String,
+    location: String,
+    coordinate: Array,
     accuracy: Number,
     createdAt: {
         type: Date,
