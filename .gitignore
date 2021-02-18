@@ -44,3 +44,6 @@ luac.out
 
 # vscode
 .vscode
+
+# node_modules
+node_modules
