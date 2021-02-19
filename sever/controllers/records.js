@@ -27,9 +27,9 @@ export const getRecord = async (req, res) => {
 }
 
 export const addRecord = async (req, res) => {
-    const { name, type, binCode, accuracy } = req.body;
+    const { name, type, binCode, accuracy, location, coordinate } = req.body;
 
-    const newRecord = new RecordMessage({ name, type, binCode, accuracy })
+    const newRecord = new RecordMessage({ name, type, binCode, accuracy , location, coordinate})
 
     try {
         await newRecord.save();
