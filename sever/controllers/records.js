@@ -6,7 +6,7 @@ const router = express.Router();
 
 export const getRecords = async (req, res) => { 
     try {
-        const recordsMessages = await RecordMessage.find();
+        const recordsMessages = await RecordMessage.find().sort({createdAt: -1});
                 
         res.status(200).json(recordsMessages);
     } catch (error) {
