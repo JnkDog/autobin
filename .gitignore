@@ -42,3 +42,11 @@ luac.out
 *.x86_64
 *.hex
 
+# vscode
+.vscode
+
+# node_modules
+node_modules
+
+# .env
+.env
