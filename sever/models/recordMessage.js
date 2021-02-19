@@ -13,6 +13,7 @@ const recordSchema = mongoose.Schema({
     location: String,
     coordinate: Array,
     accuracy: Number,
+    numType: Number,
     createdAt: {
         type: Date,
         default: new Date(),
