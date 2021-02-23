@@ -1,7 +1,7 @@
 # autobin
 A autobin based on picture recognition 
 
-a new test
+a new test from pc
 A autobin based on picture recognition
 
 
