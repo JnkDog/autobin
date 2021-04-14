@@ -9,7 +9,7 @@
 PCA9685 PWM = PCA9685(); // called this way, it uses the default address 0x40
 #include "servo.h"
 
-servo::servo(int channel) {
+servo::servo() {
 	PWM.reset();
     PWM.setPWMFreq(60);
 	

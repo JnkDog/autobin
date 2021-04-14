@@ -22,16 +22,17 @@ class PCA9685
 		//virtual ~PCA9685();
 		
         PCA9685();
+		virtual ~PCA9685();
         void reset();
         void setPWMFreq(unsigned short freq);
         void setPWM(unsigned char channel, unsigned short on, unsigned short value);
         void setPulse(unsigned char channel, unsigned short pulse);  
-	/*
+	
 	private:
-		uint8_t devID;
-		int fd;
-		double _freq;
-    */
+		//uint8_t devID;
+		int PCA9685_fd;
+		//double _freq;
+
 };
 
 

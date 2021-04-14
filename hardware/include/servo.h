@@ -34,7 +34,7 @@ class servo //: public PCA9685
     //pwm = Adafruit_PCA9685.PCA9685()//# 地址默认为这个 address=PCA9685_ADDRESS
                                     //# 如果修改了模块上的地址，则需要修改。
     public: 
-    servo(int);
+    servo();
 	virtual ~servo();
     
     void set_servo_open(int channel);
