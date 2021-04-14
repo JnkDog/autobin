@@ -14,36 +14,24 @@ unsigned char ReadByte(int fd, unsigned char regAddr);
 bool PCA9685_initSuccess = false;
 int PCA9685_fd = 0;
 
-/*
-int main()
-{
-	int PCA9865_channel = 15;
-	PCA9685Init();
-	PCA9685SetPwmFreq(50);
-	while (1)
-	{
-		for (int i = 500; i < 2500; i += 10)
-		{
-			SetServoPulse(PCA9865_channel, i);
-			usleep(20000);
-		}
-	}
-
-	return 0;
-}
-*/
 
 
 PCA9685::PCA9685() 
 {
-	//初始化
+	//initialize PCA9685_ADDRESS 0x40
 	PCA9685_fd = wiringPiI2CSetup(PCA9685_ADDRESS);
 	if (PCA9685_fd <= 0) 
 		return false;
 	PCA9685_initSuccess = true;
-	//reset();
+	reset();
 	return true;
 }
+
+PCA9685::~PCA9685() {
+
+	delete PCA9685_fd;
+}
+
 
 void PCA9685::reset() 
 {
@@ -70,8 +58,13 @@ void PCA9685::reset()
 	}
 }
 
+//! Set the frequency of PWM
+/*!
+ \param freq desired frequency. 40Hz to 1000Hz using internal 25MHz oscillator.
+ */
+
 void PCA9685::setPWMFreq(unsigned short freq) 
-{ //设置频率
+{ //set frequency
 	unsigned char preScale = (PCA9685_CLOCK_FREQ / 4096 / freq) - 1;
 	unsigned char oldMode = 0;
 	printf("set PWM frequency to %d HZ\n",freq);
@@ -91,7 +84,7 @@ void PCA9685::setPWMFreq(unsigned short freq)
 
 void PCA9685::setPWM(unsigned char channel, unsigned short on, unsigned short value)
 {
-	//设置各个通道的PWM
+	//Set the PWM of each channel
 	if (!PCA9685_initSuccess) 
 	{
 		printf("Set Pwm failure!\n");
