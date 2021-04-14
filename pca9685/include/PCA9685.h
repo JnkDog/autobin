@@ -2,8 +2,8 @@
 #define __PCA9685_H
 
 
-#define PCA9685_ADDRESS			0x40			//pca9685地址
-#define PCA9685_CLOCK_FREQ		25000000		//PWM频率25MHz
+#define PCA9685_ADDRESS			0x40			//pca9685address
+#define PCA9685_CLOCK_FREQ		25000000		//PWMfrequency25MHz
 #define PCA9685_MODE1			0x00
 #define PCA9685_MODE2			0x01
 #define PCA9685_PRE_SCALE		0xFE
@@ -33,12 +33,6 @@ class PCA9685
     */
 };
 
-/*
-bool PCA9685Init();
-void ResetPca9685();
-void PCA9685SetPwmFreq(unsigned short freq);
-void PCA9685SetPwm(unsigned char channel, unsigned short on, unsigned short value);
-void SetServoPulse(unsigned char channel, unsigned short pulse);
-*/
+
 
 #endif
