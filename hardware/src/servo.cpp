@@ -23,6 +23,8 @@ servo::~servo() {
 void servo::set_servo_open (int channel) {
    
     sleep(2);
+    
+    /*
     while (1)
 	{
 		for (int i = 500; i < 2500; i += 10)
@@ -31,7 +33,8 @@ void servo::set_servo_open (int channel) {
 			usleep(20000);
 		}
 	}
-    //PCA9685.setPWM(channel, 0, SERVOMAX);
+    */
+    PCA9685.setPWM(channel, 0, SERVOMAX);
     printf("%d号舵机开启%d\n",channel,SERVOMAX);
 }
 
