@@ -22,7 +22,7 @@
 
 <!-- ![image](media/images/Autobin_logo.jpg){:height="20%" width="20%"} -->
 
-<img src="media/images/Autobin_logo.png" alt="Logo" width="250" height="250">
+<img src="media/images/Autobin_logo.jpg" alt="Logo" width="550" height="450">
 
 <p align="center">
   <a href="">
