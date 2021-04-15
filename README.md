@@ -20,7 +20,7 @@
 
 ## Media
 
-![image](https://github.com/JnkDog/media/images/Autobin_logo.jpg)
+![image](media/images/Autobin_logo.jpg)
 
 <p align="center">
   <a href="">
