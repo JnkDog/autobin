@@ -1,5 +1,5 @@
-#ifndef __Console_H__
-#define __Console_H__
+#ifndef Console_H
+#define Console_H
 
 #include <iostream>
 #include <string> 
@@ -7,8 +7,6 @@
 /*
  * This is a console class to print message
  * on the screen.
- * 
- * Coded by Kuihong Chen 
  */
 
 class Console
@@ -40,16 +38,8 @@ public:
 
 	static void printInitMessage()
 	{
-		writeLine("******** Welcome the AutoBin server ********");
-		writeLine("Please input port:");
-	}
-
-	static void printStroeMethod()
-	{
-		writeLine("******** We support two ways ********");
-		writeLine("A       JSON");
-		writeLine("B       Database");
-		writeLine("******** Please input A or B ********");
+		writeLine("******** Welcome the AutoBin Camera ********");
+		writeLine("UDP port is 9999");
 	}
 };
 
