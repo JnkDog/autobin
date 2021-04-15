@@ -77,10 +77,10 @@ git clone https://github.com/JnkDog/autobin
 cd autobin
 git submodule update --init
 ```
-You can get more detailed steps in our #[wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch)
+You can get more detailed steps in our [wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch)
 
 ## Usage
-Our project framework contains many sub-projects, so we wrote a shell script to execute it, the detailed process can be found in the  #[wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch).
+Our project framework contains many sub-projects, so we wrote a shell script to execute it, the detailed process can be found in the [wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch).
 
 ```sh
 # Ensure that the dependency libraries are installed
