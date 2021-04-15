@@ -5,7 +5,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/JnkDog/autobin">
   <a href="https://github.com/JnkDog/autobin/blob/main/README.md" target="_blank">
   </a>
-          <img alt="GitHub contributors" 		src="https://img.shields.io/github/contributors/JnkDog/autobin">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/JnkDog/autobin">
   <a href="https://github.com/JnkDog/autobin/graphs/code-frequency" target="_blank">
   </a>
   <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE" target="_blank">
@@ -20,7 +20,9 @@
 
 ## Media
 
-![image](media/images/Autobin_logo.jpg)
+<!-- ![image](media/images/Autobin_logo.jpg){:height="20%" width="20%"} -->
+
+<img src="media/images/Autobin_logo.png" alt="Logo" width="250" height="250">
 
 <p align="center">
   <a href="">
@@ -36,6 +38,7 @@
     <img src="media/images/ins.png" alt="Instagram"  width="64" height="64">
   </a>
 </p>
+
 ## Model
 
 ![image](https://github.com/Yuyangovo/img-floder/blob/main/intro2.jpg)
@@ -87,11 +90,11 @@ sh start.sh
 
 ## Author
 
-👤 **Kuihong Chen**
+👦 **Kuihong Chen**
 
-👤 **Yuyang Zhou**
+👧**Yuyang Zhou**
 
-👤 **Pengchong Wang**
+👦 **Pengchong Wang**
 
 ## 🤝 Contributing
 
