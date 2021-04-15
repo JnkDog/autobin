@@ -21,15 +21,14 @@ PCA9685::PCA9685()
 	//initialize PCA9685_ADDRESS 0x40
 	PCA9685_fd = wiringPiI2CSetup(PCA9685_ADDRESS);
 	if (PCA9685_fd <= 0) 
-		return false;
+	
 	PCA9685_initSuccess = true;
 	reset();
-	return true;
+
 }
 
 PCA9685::~PCA9685() {
 
-	delete PCA9685_fd;
 }
 
 
@@ -101,7 +100,7 @@ void PCA9685::setPWM(unsigned char channel, unsigned short on, unsigned short va
 void PCA9685::setPulse(unsigned char channel, unsigned short pulse)
 {
 	pulse = pulse * 4096 / 20000;
-	setPwm(channel, 0, pulse);
+	setPWM(channel, 0, pulse);
 }
 
 
