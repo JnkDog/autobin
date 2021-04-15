@@ -16,8 +16,26 @@
 
 > A C++ project to identify categories of trash and automatically open the corresponding trash cans. 
 
-### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
+### 🏠 [Homepage](https://github.com/JnkDog/autobin#readme)
 
+## Media
+
+![image](https://github.com/JnkDog/media/images/Autobin_logo.jpg)
+
+<p align="center">
+  <a href="">
+    <img src="media/images/youtube.png" alt="YouTube"  width="64" height="64">
+  </a>
+  <a href="">
+    <img src="media/images/bilibili.png" alt="Bilibili"  width="64" height="64">
+  </a>
+  <a href="">
+    <img src="media/images/twitter.png" alt="Twitter"  width="64" height="64">
+  </a>
+  <a href="">
+    <img src="media/images/ins.png" alt="Instagram"  width="64" height="64">
+  </a>
+</p>
 ## Model
 
 ![image](https://github.com/Yuyangovo/img-floder/blob/main/intro2.jpg)
@@ -41,25 +59,30 @@
 
 ## Prerequisites
 
-- 
-- 
+- fswebcam
+- git
+- jsoncpp
+- node
+- cmake
+- wiringPi
 
 ## Install
 
 ```sh
-
+git clone https://github.com/JnkDog/autobin
+cd autobin
+git submodule update --init
 ```
+You can get more detailed steps in our #[wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch)
 
 ## Usage
+Our project framework contains many sub-projects, so we wrote a shell script to execute it, the detailed process can be found in the  #[wiki](https://github.com/JnkDog/autobin/wiki/ENG-02-Install-And-Launch).
 
 ```sh
-
-```
-
-## Run tests
-
-```sh
-
+# Ensure that the dependency libraries are installed
+# Start the shell script
+cd autobin
+sh start.sh
 ```
 
 ## Author
