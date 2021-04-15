@@ -21,8 +21,9 @@
 ## Media
 
 <!-- ![image](media/images/Autobin_logo.jpg){:height="20%" width="20%"} -->
-
+<p align="center">
 <img src="media/images/Autobin_logo.jpg" alt="Logo" width="550" height="450">
+</p>
 
 <p align="center">
   <a href="">
