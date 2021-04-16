@@ -12,8 +12,7 @@
 #include "servo.h"
 #include "client.h"
 
-int sendtomyserver(char bufdata[]);
-
+/*	set some const variable and info fist of the program*/
 Json::Value typeinfo;
 typeinfo["瓶子"] = "0";
 typeinfo["纸"] = "0";
@@ -24,19 +23,51 @@ typeinfo["电池"] = "1";
 const char *name[] = {"瓶子", "纸", "罐子", "药品", "电池"};
 int namelen = 5;
 
+/*	socket initialization:
+	Server network address structure
+	Client network address structure
+	define a buff
+	Data initialization-set zero
+	Set to IP communication
+	Server IP address-allow connection to all local addresses
+	Server port number
+*/
+
+/* 	example result get from camera:
+	result:
+	{
+		"score" = 0.8;
+		"root" = "商品-容器";
+		"keyword" = "瓶子";
+	}
+*/
+
+/*	Product Types<->number 
+	define info as a dictionary
+	number:
+		0:recyclable trash
+		1:Hazardous waste
+		2:Kitchen waste 
+		3:other garbage
+		4:Invalid data
+*/
+
+/*	set a function achieve to send infomation to the server	*/
+int sendtomyserver(char bufdata[]);
+
 int main(int argc, char *argv[])
 {
 	int server_sockfd;
 	int len;
 
-	struct sockaddr_in my_addr;   //Server network address structure
-    struct sockaddr_in remote_addr; //Client network address structure
+	struct sockaddr_in my_addr;   
+    struct sockaddr_in remote_addr; 
 	socklen_t sin_size;
-	char buf[BUFSIZ];  //define a buff
-	memset(&my_addr,0,sizeof(my_addr)); //Data initialization-set zero
-	my_addr.sin_family=AF_INET; //Set to IP communication
-	my_addr.sin_addr.s_addr=INADDR_ANY;//Server IP address-allow connection to all local addresses
-	my_addr.sin_port=htons(9999); //Server port number
+	char buf[BUFSIZ];  
+	memset(&my_addr,0,sizeof(my_addr)); 
+	my_addr.sin_family=AF_INET; 
+	my_addr.sin_addr.s_addr=INADDR_ANY;
+	my_addr.sin_port=htons(9999); 
 	
 	/*Create server-side socket-IPv4 protocol, for connectionless communication, UDP protocol*/
 	if((server_sockfd=socket(PF_INET,SOCK_DGRAM,0))<0)
@@ -66,25 +97,12 @@ int main(int argc, char *argv[])
 		printf("received packet from %s:\n",inet_ntoa(remote_addr.sin_addr));
 		buf[len]='/0';
 
-		//read json and transform to string, Assign json content to variable
+		/*read json and transform to string, Assign json content to variable*/
 		Json::Reader reader;  
 		Json::Value value; 
 		reader.parse(buf, value);
 		std::string gettype = value["result"][0u]["keyword"].asString();  
 		std::cout << gettype << std::endl;
-
-		/* example:
-		result["score"] = 0.8;
-		result["root"] = "商品-容器";
-		result["keyword"] = "瓶子";*/
-		
-		/*Product Types<->number define info as a dictionary
-			0:recyclable trash
-			1:Hazardous waste
-			2:Kitchen waste 
-			3:other garbage
-			4:Invalid data
-		*/
 		
 		for(int i=0; i<namelen; i++){
 			if(gettype.find(name[i]) != -1)
@@ -93,15 +111,18 @@ int main(int argc, char *argv[])
 					break;
 				}
 		}
-		
-		int typenum = 4;//init typenum as a invalid data
+
+		/*	init typenum as a invalid data
+			if can't find the info in dict. return as other garbage
+		*/
+		int typenum = 4;
 		if(typeinfo[gettype].isString())
 		{
 			std::string typenumber = typeinfo[gettype].asString();
 			typenum = std::stoi(typenumber);
 		}
 		else
-			typenum = 3;//can't find the info in dict. return as other garbage
+			typenum = 3;
 
 		/*Call the function to operate the rudder*/
 		if(typenum < 4 && typenum > -1)
