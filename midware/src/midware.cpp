@@ -14,11 +14,21 @@
 
 int sendtomyserver(char bufdata[]);
 
+Json::Value typeinfo;
+typeinfo["瓶子"] = "0";
+typeinfo["纸"] = "0";
+typeinfo["罐子"] = "0";
+typeinfo["药品"] = "1";
+typeinfo["电池"] = "1";
+
+const char *name[] = {"瓶子", "纸", "罐子", "药品", "电池"};
+int namelen = 5;
+
 int main(int argc, char *argv[])
 {
 	int server_sockfd;
 	int len;
-	
+
 	struct sockaddr_in my_addr;   //Server network address structure
     struct sockaddr_in remote_addr; //Client network address structure
 	socklen_t sin_size;
@@ -60,7 +70,7 @@ int main(int argc, char *argv[])
 		Json::Reader reader;  
 		Json::Value value; 
 		reader.parse(buf, value);
-		std::string gettype = value[0]["keyword"].asString();  
+		std::string gettype = value["result"][0u]["keyword"].asString();  
 		std::cout << gettype << std::endl;
 
 		/* example:
@@ -75,17 +85,8 @@ int main(int argc, char *argv[])
 			3:other garbage
 			4:Invalid data
 		*/
-		Json::Value typeinfo;
-		typeinfo["瓶子"] = "0";
-		typeinfo["纸"] = "0";
-		typeinfo["罐子"] = "0";
-		typeinfo["药品"] = "1";
-		typeinfo["电池"] = "1";
-
-		const char *name[] = {"瓶子", "纸", "罐子", "药品", "电池"};
-		int len = 5;
-	
-		for(i=0; i<len; i++){
+		
+		for(int i=0; i<namelen; i++){
 			if(gettype.find(name[i]) != -1)
 				{
 					gettype = name[i];
@@ -113,7 +114,7 @@ int main(int argc, char *argv[])
 		/*send info to the server*/
 		sendtomyserver(buf);
 	}
-	
+
 	/*close socket*/
 	close(server_sockfd);
 
