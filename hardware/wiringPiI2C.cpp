@@ -110,7 +110,6 @@ static inline int i2c_smbus_access (int fd, char rw, uint8_t command, int size, 
   return ioctl (fd, I2C_SMBUS, &args) ;
 }
 
-
 /*
  * wiringPiI2CRead:
  *	Simple device read
@@ -127,34 +126,6 @@ int wiringPiI2CRead (int fd)
     return data.byte & 0xFF ;
 }
 
-
-/*
- * wiringPiI2CReadReg8: wiringPiI2CReadReg16:
- *	Read an 8 or 16-bit value from a regsiter on the device
- *********************************************************************************
- */
-
-int wiringPiI2CReadReg8 (int fd, int reg)
-{
-  union i2c_smbus_data data;
-
-  if (i2c_smbus_access (fd, I2C_SMBUS_READ, reg, I2C_SMBUS_BYTE_DATA, &data))
-    return -1 ;
-  else
-    return data.byte & 0xFF ;
-}
-
-int wiringPiI2CReadReg16 (int fd, int reg)
-{
-  union i2c_smbus_data data;
-
-  if (i2c_smbus_access (fd, I2C_SMBUS_READ, reg, I2C_SMBUS_WORD_DATA, &data))
-    return -1 ;
-  else
-    return data.word & 0xFFFF ;
-}
-
-
 /*
  * wiringPiI2CWrite:
  *	Simple device write
@@ -165,30 +136,6 @@ int wiringPiI2CWrite (int fd, int data)
 {
   return i2c_smbus_access (fd, I2C_SMBUS_WRITE, data, I2C_SMBUS_BYTE, NULL) ;
 }
-
-
-/*
- * wiringPiI2CWriteReg8: wiringPiI2CWriteReg16:
- *	Write an 8 or 16-bit value to the given register
- *********************************************************************************
- */
-
-int wiringPiI2CWriteReg8 (int fd, int reg, int value)
-{
-  union i2c_smbus_data data ;
-
-  data.byte = value ;
-  return i2c_smbus_access (fd, I2C_SMBUS_WRITE, reg, I2C_SMBUS_BYTE_DATA, &data) ;
-}
-
-int wiringPiI2CWriteReg16 (int fd, int reg, int value)
-{
-  union i2c_smbus_data data ;
-
-  data.word = value ;
-  return i2c_smbus_access (fd, I2C_SMBUS_WRITE, reg, I2C_SMBUS_WORD_DATA, &data) ;
-}
-
 
 /*
  * wiringPiI2CSetupInterface:
@@ -209,7 +156,6 @@ int wiringPiI2CSetupInterface (const char *device, int devId)
 
   return fd ;
 }
-
 
 /*
  * wiringPiI2CSetup:
