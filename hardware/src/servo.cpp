@@ -53,3 +53,4 @@ void servo::set_servo_close (int channel) {
     PWM.setPWM(channel, 0, SERVOMIN);
     printf("No.%d servo closes %d\n",channel,SERVOMIN);
 }
+
