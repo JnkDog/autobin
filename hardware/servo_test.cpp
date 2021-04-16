@@ -128,20 +128,12 @@ void SetServoPulse(unsigned char channel, unsigned short pulse)
 	PCA9685SetPwm(channel, 0, pulse);
 }
 
-
-
-
-
-
-
 bool WriteByte(int fd, unsigned char regAddr, unsigned char data) 
 {
 	if (wiringPiI2CWriteReg8(fd, regAddr, data) < 0)
 		return -1;
 	return 0;
 }
-
-
 
 unsigned char ReadByte(int fd, unsigned char regAddr) 
 {
