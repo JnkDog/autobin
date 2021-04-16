@@ -5,6 +5,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <string.h>
+#include <string>
 #include <unistd.h>
 #include <jsoncpp/json/json.h>
 #include "PCA9685.h"
@@ -50,14 +51,14 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	printf("received packet from %s:/n",inet_ntoa(remote_addr.sin_addr));
+	printf("received packet from %s:\n",inet_ntoa(remote_addr.sin_addr));
 	buf[len]='/0';
 
 	//read json and transform to string, Assign json content to variable
 	Json::Reader reader;  
     Json::Value value; 
     reader.parse(buf, value);
-    std::string gettype = value["keyword"].asString();  
+    std::string gettype = value[0]["keyword"].asString();  
     std::cout << gettype << std::endl;
 
 	/* example:
@@ -73,11 +74,22 @@ int main(int argc, char *argv[])
 		4:Invalid data
 	*/
 	Json::Value typeinfo;
-	typeinfo["瓶子"] = 0;
-	typeinfo["纸"] = 0;
-	typeinfo["罐子"] = 0;
-	typeinfo["药品"] = 1;
-	typeinfo["电池"] = 1;
+	typeinfo["瓶子"] = "0";
+	typeinfo["纸"] = "0";
+	typeinfo["罐子"] = "0";
+	typeinfo["药品"] = "1";
+	typeinfo["电池"] = "1";
+
+	const char *name[] = {"瓶子", "纸", "罐子", "药品", "电池"};
+	int len = 5;
+ 
+	for(i=0; i<len; i++){
+		if(gettype.find(name[i]))
+			{
+				gettype = name[i];
+				break;
+			}
+	}
 	
 	int typenum = 4;//init typenum as a invalid data
 	if(typeinfo[gettype].isString())
@@ -85,7 +97,7 @@ int main(int argc, char *argv[])
 		std::string typenumber = typeinfo[gettype].asString();
 		typenum = std::stoi(typenumber);
 	}
-	else 
+	else
 		typenum = 3;//can't find the info in dict. return as other garbage
 
 	/*Call the function to operate the rudder*/
