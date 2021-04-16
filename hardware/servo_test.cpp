@@ -11,8 +11,8 @@ void PCA9685SetPwmFreq(unsigned short freq);
 void PCA9685SetPwm(unsigned char channel, unsigned short on, unsigned short value);
 void SetServoPulse(unsigned char channel, unsigned short pulse);
 
-#define PCA9685_ADDRESS			0x40			//pca9685地址
-#define PCA9685_CLOCK_FREQ		25000000		//PWM频率25MHz
+#define PCA9685_ADDRESS			0x40			//pca9685address
+#define PCA9685_CLOCK_FREQ		25000000		//PWMfrequency25MHz
 #define PCA9685_MODE1			0x00
 #define PCA9685_MODE2			0x01
 #define PCA9685_PRE_SCALE		0xFE
@@ -53,7 +53,7 @@ int main()
 
 bool PCA9685Init() 
 {
-	//初始化
+	//initialize PCA9685_ADDRESS 0x40
 	PCA9685_fd = wiringPiI2CSetup(PCA9685_ADDRESS);
 	if (PCA9685_fd <= 0) 
 		return false;
@@ -88,7 +88,7 @@ void ResetPca9685()
 }
 
 void PCA9685SetPwmFreq(unsigned short freq) 
-{ //设置频率
+{ //set frequency
 	unsigned char preScale = (PCA9685_CLOCK_FREQ / 4096 / freq) - 1;
 	unsigned char oldMode = 0;
 	printf("set PWM frequency to %d HZ\n",freq);
@@ -108,7 +108,7 @@ void PCA9685SetPwmFreq(unsigned short freq)
 
 void PCA9685SetPwm(unsigned char channel, unsigned short on, unsigned short value)
 {
-	//设置各个通道的PWM
+	//Set the PWM of each channel
 	if (!PCA9685_initSuccess) 
 	{
 		printf("Set Pwm failure!\n");
