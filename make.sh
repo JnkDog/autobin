@@ -51,5 +51,3 @@ make
 
 echo -e "${RED_COLOR}================ Boost OK!!! ================ ${RESET}"
 echo "Starting script at $(date "+%Y-%m-%d  %H:%M:%S")"
-
-
