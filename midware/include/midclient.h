@@ -8,17 +8,27 @@
 #include <unistd.h>
 #include <jsoncpp/json/json.h>
 
+/*
+most of the socket client step is similiar to the socket server:
+	Server network address structure
+	The buffer for data transfer
+	Data initialization-set zero
+	Set to IP communication
+	Server IP address
+	Server port number
+*/
+
 int sendtomyserver(char bufdata[])
 {
 	int client_sockfd;
 	int len;
-	struct sockaddr_in remote_addr; //Server network address structure
+	struct sockaddr_in remote_addr; 
 	int sin_size;
-	char buf[BUFSIZ];  //The buffer for data transfer
-	memset(&remote_addr,0,sizeof(remote_addr)); //Data initialization-set zero
-	remote_addr.sin_family=AF_INET; //Set to IP communication
-	remote_addr.sin_addr.s_addr=inet_addr("127.0.0.1");//Server IP address
-	remote_addr.sin_port=htons(8000); //Server port number
+	char buf[BUFSIZ]; 
+	memset(&remote_addr,0,sizeof(remote_addr)); 
+	remote_addr.sin_family=AF_INET; 
+	remote_addr.sin_addr.s_addr=inet_addr("127.0.0.1");
+	remote_addr.sin_port=htons(8000); 
 
     /*Create a client socket-IPv4 protocol for connectionless communication, UDP protocol*/
 	if((client_sockfd=socket(PF_INET,SOCK_DGRAM,0))<0)
@@ -26,7 +36,8 @@ int sendtomyserver(char bufdata[])
 		perror("socket error");
 		return 1;
 	}
-	strcpy(buf, bufdata); // The content sent
+	/* The content sent */
+	strcpy(buf, bufdata); 
 	printf("sending: '%s'/n",buf); 
 	sin_size=sizeof(struct sockaddr_in);
 	
