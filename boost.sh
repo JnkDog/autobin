@@ -20,28 +20,28 @@ MIDWARE_PATH=./midware/
 
 echo "Starting script at $(date "+%Y-%m-%d  %H:%M:%S")"
 
-echo "The script is deploying AutoBin, plz waiting..."
+echo "The script is boosting AutoBin, plz waiting..."
 
-echo -e "${RED_COLOR}================ Starting web ================${RESET}"
+echo -e "${RED_COLOR}================ Boosting web ================${RESET}"
 
 cd ${WEB_PATH}
 npm start 
 
-echo -e "${RED_COLOR}================ Starting server ================${RESET}"
+echo -e "${RED_COLOR}================ Boosting server ================${RESET}"
 cd ..
 cd ${server}
 npm start 
 
-echo -e "${RED_COLOR}================ Starting midware ================${RESET}"
+echo -e "${RED_COLOR}================ Boosting midware ================${RESET}"
 cd ..
 cd ${MIDWARE_PATH}
-mkdir build && cd build
+cd build
 ./midware
 
-echo -e "${RED_COLOR}================  Starting camera ================${RESET}"
+echo -e "${RED_COLOR}================  Boosting camera ================${RESET}"
 cd ..
 cd ${CAMERA_PATH}
-mkdir build && cd build
+cd build
 ./camera
 
 echo -e "${RED_COLOR}================ Boost OK!!! ================ ${RESET}"
