@@ -97,7 +97,8 @@ sh boost.sh
   * Web APP & Web Server & Image Recognition & Shell
 
 👧 **Yuyang Zhou**
-
+  * Hardware & IIC communication & PCA9685 & Servo Motor Control
+  
 👦 **Pengchong Wang**
 
 ## 🤝 Contributing
