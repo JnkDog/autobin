@@ -93,9 +93,10 @@ sh boost.sh
 
 ## Author
 
-👦 **Kuihong Chen**
+👦 **Kuihong Chen**(JnkDog) 
+  * Web APP & Web Server & Image Recognition & Shell
 
-👧**Yuyang Zhou**
+👧 **Yuyang Zhou**
 
 👦 **Pengchong Wang**
 
