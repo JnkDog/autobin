@@ -153,6 +153,7 @@ int main(int argc, char **argv) {
 	
 	server_ip = argv[1];
 	if (argc > 2) {
+		// set default port
 		port = (unsigned short)69;
 	}
 	printf("Connect to server at %s : %d", server_ip, port);
