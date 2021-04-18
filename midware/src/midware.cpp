@@ -33,12 +33,18 @@ int namelen = 5;
 	Server port number
 */
 
-/* 	example result get from camera:
-	result:
-	{
-		"score" = 0.8;
-		"root" = "商品-容器";
-		"keyword" = "瓶子";
+/* 	the example json result we get from camera:
+	json:
+	{	
+		result:
+		{
+			one: 
+			{
+				"score" = 0.8;
+				"root" = "商品-容器";
+				"keyword" = "瓶子";
+			}
+		}
 	}
 */
 
