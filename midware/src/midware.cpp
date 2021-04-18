@@ -16,12 +16,14 @@
 Json::Value typeinfo;
 typeinfo["瓶子"] = "0";
 typeinfo["纸"] = "0";
+typeinfo["书"] = "0";
 typeinfo["罐子"] = "0";
 typeinfo["药品"] = "1";
 typeinfo["电池"] = "1";
+typeinfo["果"] = "2";
 
-const char *name[] = {"瓶子", "纸", "罐子", "药品", "电池"};
-int namelen = 5;
+const char *name[] = {"瓶子", "书", "纸", "罐子", "药品", "电池", "果"};
+int namelen = 7;
 
 /*	socket initialization:
 	Server network address structure

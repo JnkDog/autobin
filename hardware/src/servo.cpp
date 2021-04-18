@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "PCA9685.h"
+#include "servo.h"
 
 #define SERVOMIN  150 
 // this is the 'minimum' pulse length count (out of 4096)
@@ -16,13 +17,11 @@ PCA9685 PWM = PCA9685();
 you can also call it with a different address you want
 PCA9685 pwm = PCA9685(0x41);
 */
-#include "servo.h"
 
+//initialize
 servo::servo() {
 	PWM.reset();
-    PWM.setPWMFreq(60);
-	
-	
+    PWM.setPWMFreq(60);	
 }
 
 servo::~servo() {
@@ -54,3 +53,4 @@ void servo::set_servo_close (int channel) {
     PWM.setPWM(channel, 0, SERVOMIN);
     printf("No.%d servo closes %d\n",channel,SERVOMIN);
 }
+

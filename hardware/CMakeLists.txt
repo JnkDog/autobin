@@ -13,6 +13,7 @@ project(demo)
 set(SOURCES
 	src/servo.cpp
 	src/PCA9685.cpp
+    src/test.cpp
 )
 
 add_executable(demo ${SOURCES})

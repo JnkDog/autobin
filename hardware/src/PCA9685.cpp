@@ -5,16 +5,10 @@
 #include <unistd.h>
 #include "PCA9685.h"
 
-
-
 bool WriteByte(int fd, unsigned char regAddr, unsigned char data);
 unsigned char ReadByte(int fd, unsigned char regAddr);
-
-
 bool PCA9685_initSuccess = false;
 int PCA9685_fd = 0;
-
-
 
 PCA9685::PCA9685() 
 {
@@ -28,9 +22,7 @@ PCA9685::PCA9685()
 }
 
 PCA9685::~PCA9685() {
-
 }
-
 
 void PCA9685::reset() 
 {
@@ -103,20 +95,12 @@ void PCA9685::setPulse(unsigned char channel, unsigned short pulse)
 	setPWM(channel, 0, pulse);
 }
 
-
-
-
-
-
-
 bool WriteByte(int fd, unsigned char regAddr, unsigned char data) 
 {
 	if (wiringPiI2CWriteReg8(fd, regAddr, data) < 0)
 		return -1;
 	return 0;
 }
-
-
 
 unsigned char ReadByte(int fd, unsigned char regAddr) 
 {

@@ -84,17 +84,21 @@ Our project framework contains many sub-projects, so we wrote a shell script to 
 
 ```sh
 # Ensure that the dependency libraries are installed
-# Start the shell script
+# Start the shell script to make
 cd autobin
-sh start.sh
+sh make.sh
+# Start the shell script to boost
+sh boost.sh
 ```
 
 ## Author
 
-👦 **Kuihong Chen**
+👦 **Kuihong Chen**(JnkDog) 
+  * Web APP & Web Server & Image Recognition & Shell
 
-👧**Yuyang Zhou**
-
+👧 **Yuyang Zhou**
+  * Hardware & IIC communication & PCA9685 & Servo Motor Control
+  
 👦 **Pengchong Wang**
 
 ## 🤝 Contributing
