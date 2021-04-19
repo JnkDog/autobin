@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 3.16.3)
 
-# set(CMAKE_BUILE_TYPE "Debug")
-
 # set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 
 # set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 set(CMAKE_BUILD_TYPE Debug)
 
+# This is only for test make
 project(demo)
 
 set(SOURCES

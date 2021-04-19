@@ -10,4 +10,4 @@ echo -e "${RED_COLOR}================ Hardware compiling ================${RESET
 mkdir build && cd build
 cmake ..
 make
-# ./hardware
+# ./demo

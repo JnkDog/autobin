@@ -42,7 +42,10 @@ echo -e "${RED_COLOR}================  Boosting camera ================${RESET}"
 cd ..
 cd ${CAMERA_PATH}
 cd build
-./camera
+# ATTENTION: the image recognization is cloud-based. 
+# we use the BAIDU API to test，make sure you deplay the API in one server
+# More information you can read the document https://ai.baidu.com/ai-doc/EASYDL/Sk38n3baq
+# ./camera recognization-ip [port: default 69]
 
 echo -e "${RED_COLOR}================ Boost OK!!! ================ ${RESET}"
 echo "Starting script at $(date "+%Y-%m-%d  %H:%M:%S")"
