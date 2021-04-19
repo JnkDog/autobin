@@ -84,8 +84,6 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	
-	while(1)
-	{
 		/*Bind the socket to the server's network address*/
 		if (bind(server_sockfd,(struct sockaddr *)&my_addr,sizeof(struct sockaddr))<0)
 		{
@@ -95,6 +93,8 @@ int main(int argc, char *argv[])
 		sin_size=sizeof(struct sockaddr_in);
 		printf("waiting for a packet.../n");
 		
+	while(1)
+	{	
 		/*Receive data from the client and send it to the client - recvfrom is connectionless*/
 		if((len=recvfrom(server_sockfd,buf,BUFSIZ,0,(struct sockaddr *)&remote_addr,&sin_size))<0)
 		{
