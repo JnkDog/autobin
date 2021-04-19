@@ -89,7 +89,7 @@ cd autobin
 sh make.sh
 # Start the shell script to boost
 # ATTENTION: 1. You need to find the recognization server.
-#            2. We use BAIDU API, more information to our wiki(https://github.com/JnkDog/autobin/wiki/  ENG-05-Camera)
+#            2. We use BAIDU API, more information to our wiki(https://github.com/JnkDog/autobin/wiki/ENG-05-Camera)
 sh boost.sh
 ```
 
