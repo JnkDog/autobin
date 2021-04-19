@@ -101,6 +101,7 @@ sh boost.sh
   * Hardware & IIC communication & PCA9685 & Servo Motor Control
   
 👦 **Pengchong Wang**
+  * Midware & logo and video design & website and app promotion 
 
 ## 🤝 Contributing
 
