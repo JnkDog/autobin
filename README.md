@@ -33,12 +33,13 @@
     <img src="media/images/bilibili.png" alt="Bilibili"  width="64" height="64">
   </a>
   <a href="">
-    <img src="media/images/twitter.png" alt="Twitter"  width="64" height="64">
-  </a>
-  <a href="">
     <img src="media/images/ins.png" alt="Instagram"  width="64" height="64">
   </a>
 </p>
+
+[See our video in Youtube](https://www.youtube.com/watch?v=j73pqFnjGmg)
+[See our video in Bilibili](https://www.bilibili.com/video/BV1r5411c79z/)
+[See our video in instagram](https://www.instagram.com/p/CN2bxcBHeXg/?igshid=90nzu98cg1ds)
 
 ## Model
 
